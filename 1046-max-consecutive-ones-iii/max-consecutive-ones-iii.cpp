@@ -1,5 +1,6 @@
 class Solution {
 public:
+//TRICK : window-size - maximum occurent element > k under while loop
     int longestOnes(vector<int>& nums, int k) {
         unordered_map<int,int>freq;
         int count=0,left=0;
