@@ -2,21 +2,34 @@ class Solution {
 public:
     
     bool isvalid(string &s){
-        stack<char> st;
-        for(int i=0; i<s.size(); i++){
-            if( s[i]=='('){
-                st.push(s[i]);
+        // stack<char> st;
+        // for(int i=0; i<s.size(); i++){
+        //     if( s[i]=='('){
+        //         st.push(s[i]);
+        //     }
+        //     if(s[i]==')'){
+        //         if(st.empty()) return false;
+        //         else{
+        //             if(st.top()=='('){
+        //                 st.pop();
+        //             }
+        //         }
+        //     }
+        // }
+        // return (st.empty());
+        int count=0;
+        for(char&c : s){
+            if(c=='('){
+                count++;
             }
-            if(s[i]==')'){
-                if(st.empty()) return false;
-                else{
-                    if(st.top()=='('){
-                        st.pop();
-                    }
-                }
+            else{
+                count--;
+            }
+            if( count<0 ){
+                return false;
             }
         }
-        return (st.empty());
+        return count==0;
     }
 
     void solve(string &s, int total,vector<string> &result){
