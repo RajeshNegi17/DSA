@@ -9,13 +9,7 @@ class Solution {
             if( map.containsKey(sum-k)){
                 count+=map.get(sum-k);
             }
-            if(!map.containsKey(sum)){
-                map.put(sum,1);
-            }
-            else{
-                int i=map.get(sum)+1;
-                map.put(sum,i);
-            }
+            map.put(sum,map.getOrDefault(sum,0)+1);
         }
         return count;
     }
